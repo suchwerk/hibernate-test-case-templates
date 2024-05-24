@@ -37,8 +37,7 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 	@Override
 	protected Class[] getAnnotatedClasses() {
 		return new Class[] {
-//				Foo.class,
-//				Bar.class
+				Foo.class
 		};
 	}
 
@@ -72,7 +71,15 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 		// BaseCoreFunctionalTestCase automatically creates the SessionFactory and provides the Session.
 		Session s = openSession();
 		Transaction tx = s.beginTransaction();
-		// Do stuff...
+		
+		
+
+// SELECT
+//          Foo f
+//  FROM Foo f
+//  WHERE
+//  f.bar = 1 OR
+
 		tx.commit();
 		s.close();
 	}

@@ -8,10 +8,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+
 /**
  * This template demonstrates how to develop a test case for Hibernate ORM, using the Java Persistence API.
  */
 public class JPAUnitTestCase {
+
 
 	private EntityManagerFactory entityManagerFactory;
 
@@ -31,7 +33,13 @@ public class JPAUnitTestCase {
 	public void hhh123Test() throws Exception {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// Do stuff...
+		
+
+        var q = entityManager.createQuery(
+                "select Foo f from Foo f where f.age = 1 OR " 
+                        , Foo.class);
+        var foundTasks = q.getResultList();
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
